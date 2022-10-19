@@ -62,7 +62,7 @@ public class NegozioTest {
 
 		Negozio primoNegozioDellaLista = elencoNegoziPresenti.get(0);
 
-		Negozio negozioCheRicercoColDAO = negozioDAOInstance.selectById(primoNegozioDellaLista.getId());
+		Negozio negozioCheRicercoColDAO = negozioDAOInstance.findById(primoNegozioDellaLista.getId());
 		if (negozioCheRicercoColDAO == null
 				|| !negozioCheRicercoColDAO.getNome().equals(primoNegozioDellaLista.getNome()))
 			throw new RuntimeException("testFindByIdNegozio : FAILED, i nomi non corrispondono");
@@ -95,7 +95,7 @@ public class NegozioTest {
 
 		Articolo primoArticoloDellaLista = elencoArticoliPresenti.get(0);
 
-		Articolo articoloCheRicercoColDAO = articoloDAOInstance.selectById(primoArticoloDellaLista.getId());
+		Articolo articoloCheRicercoColDAO = articoloDAOInstance.findById(primoArticoloDellaLista.getId());
 		if (articoloCheRicercoColDAO == null
 				|| !articoloCheRicercoColDAO.getNome().equals(primoArticoloDellaLista.getNome()))
 			throw new RuntimeException("testFindByIdArticolo : FAILED, i nomi non corrispondono");

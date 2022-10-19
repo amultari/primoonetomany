@@ -45,7 +45,7 @@ public class ArticoloDAO {
 		return result;
 	}
 
-	public Articolo selectById(Long idArticoloInput) {
+	public Articolo findById(Long idArticoloInput) {
 
 		if (idArticoloInput == null || idArticoloInput < 1)
 			throw new RuntimeException("Impossibile recuperare Articolo: id mancante!");
@@ -97,7 +97,7 @@ public class ArticoloDAO {
 	}
 
 	// TODO
-	public Articolo selectByIdWithJoin(Long idInput) {
+	public Articolo findByIdEager(Long idInput) {
 		return null;
 	}
 

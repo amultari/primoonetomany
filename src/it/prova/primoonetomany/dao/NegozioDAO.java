@@ -37,7 +37,7 @@ public class NegozioDAO {
 		return result;
 	}
 
-	public Negozio selectById(Long idNegozioInput) {
+	public Negozio findById(Long idNegozioInput) {
 
 		if (idNegozioInput == null || idNegozioInput < 1)
 			throw new RuntimeException("Impossibile caricare Negozio: id mancante!");
