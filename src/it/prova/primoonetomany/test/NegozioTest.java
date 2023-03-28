@@ -1,5 +1,6 @@
 package it.prova.primoonetomany.test;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import it.prova.primoonetomany.dao.ArticoloDAO;
@@ -47,7 +48,8 @@ public class NegozioTest {
 
 	private static void testInserimentoNegozio(NegozioDAO negozioDAOInstance) {
 		System.out.println(".......testInserimentoNegozio inizio.............");
-		int quantiNegoziInseriti = negozioDAOInstance.insert(new Negozio("Negozio1", "via dei mille 14"));
+		int quantiNegoziInseriti = negozioDAOInstance
+				.insert(new Negozio("Negozio1", "via dei mille 14", LocalDate.parse("2019-03-29")));
 		if (quantiNegoziInseriti < 1)
 			throw new RuntimeException("testInserimentoNegozio : FAILED");
 

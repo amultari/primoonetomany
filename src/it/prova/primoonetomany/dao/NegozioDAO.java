@@ -26,6 +26,8 @@ public class NegozioDAO {
 				negozioTemp.setId(rs.getLong("id"));
 				negozioTemp.setNome(rs.getString("nome"));
 				negozioTemp.setIndirizzo(rs.getString("indirizzo"));
+				negozioTemp.setDataApertura(
+						rs.getDate("dataapertura") != null ? rs.getDate("dataapertura").toLocalDate() : null);
 
 				result.add(negozioTemp);
 			}
@@ -53,6 +55,9 @@ public class NegozioDAO {
 					result.setId(rs.getLong("id"));
 					result.setNome(rs.getString("nome"));
 					result.setIndirizzo(rs.getString("indirizzo"));
+					result.setDataApertura(
+							rs.getDate("dataapertura") != null ? rs.getDate("dataapertura").toLocalDate() : null);
+
 				} else {
 					result = null;
 				}
@@ -72,10 +77,14 @@ public class NegozioDAO {
 
 		int result = 0;
 		try (Connection c = MyConnection.getConnection();
-				PreparedStatement ps = c.prepareStatement("INSERT INTO negozio (nome, indirizzo) VALUES (?, ?)")) {
+				PreparedStatement ps = c
+						.prepareStatement("INSERT INTO negozio (nome, indirizzo, dataapertura) VALUES (?, ?, ?)")) {
 
 			ps.setString(1, negozioInput.getNome());
 			ps.setString(2, negozioInput.getIndirizzo());
+			java.sql.Date dateParsedForSQL = java.sql.Date.valueOf(negozioInput.getDataApertura());
+			ps.setDate(3, dateParsedForSQL);
+
 			result = ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

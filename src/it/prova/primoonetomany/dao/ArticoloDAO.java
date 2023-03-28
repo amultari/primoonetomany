@@ -32,6 +32,9 @@ public class ArticoloDAO {
 				negozioTemp.setId(rs.getLong("n.id"));
 				negozioTemp.setNome(rs.getString("nome"));
 				negozioTemp.setIndirizzo(rs.getString("indirizzo"));
+				negozioTemp.setDataApertura(
+						rs.getDate("dataapertura") != null ? rs.getDate("dataapertura").toLocalDate() : null);
+
 
 				articoloTemp.setNegozio(negozioTemp);
 				result.add(articoloTemp);
