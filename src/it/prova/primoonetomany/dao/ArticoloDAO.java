@@ -24,13 +24,13 @@ public class ArticoloDAO {
 
 			while (rs.next()) {
 				Articolo articoloTemp = new Articolo();
-				articoloTemp.setNome(rs.getString("NOME"));
+				articoloTemp.setNome(rs.getString("a.NOME"));
 				articoloTemp.setMatricola(rs.getString("matricola"));
 				articoloTemp.setId(rs.getLong("a.id"));
 
 				Negozio negozioTemp = new Negozio();
 				negozioTemp.setId(rs.getLong("n.id"));
-				negozioTemp.setNome(rs.getString("nome"));
+				negozioTemp.setNome(rs.getString("n.nome"));
 				negozioTemp.setIndirizzo(rs.getString("indirizzo"));
 				negozioTemp.setDataApertura(
 						rs.getDate("dataapertura") != null ? rs.getDate("dataapertura").toLocalDate() : null);
